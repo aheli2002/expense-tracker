@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e7f3fe; /* Light blue background for the entire page */
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #003366; /* Dark navy blue for the title */
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+/* Flex layout to arrange left and right panels */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Left panel for the Add Expense Form */
+.left-panel {
+    flex: 1;
+    background-color: #f0f8ff; /* Light blue */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #a3c2e5; /* Soft blue border */
+}
+
+/* Right panel for the Expense List */
+.right-panel {
+    flex: 1.5;
+    background-color: #f0f8ff; /* Very light blue */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #b0d4f1; /* Slightly darker blue border */
+}
+
+/* Styling the add expense form */
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff; /* Bright blue button color */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Filter section styling */
+.filter-section {
+    margin-bottom: 20px;
+}
+
+/* Arrange filters and expense list vertically */
+.filter-section h2 {
+    margin-bottom: 10px;
+}
+
+#expense-list {
+    max-height: 300px;
+    overflow-y: auto;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.expense-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.expense-item:last-child {
+    border-bottom: none;
+}
+
+/* Summary panel styling */
+.summary-panel {
+    text-align: center;
+    background-color: #cce5ff; /* Soft blue background */
+    font-size: 1.4em;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #99c2ff; /* Soft blue border */
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+

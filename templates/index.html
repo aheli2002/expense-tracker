@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>EXPENSE TRACKER</h1>
+
+        <div class="main-content">
+            <!-- Left Panel for Add Expense Form -->
+            <div class="left-panel">
+                <form id="expense-form">
+                    <h2>Add New Expense</h2>
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" name="amount" required>
+
+                    <label for="category">Category:</label>
+                    <select id="category" name="category">
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Utilities">Utilities</option>
+                    </select>
+
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <button type="button" onclick="addExpense()">Add Expense</button>
+                </form>
+            </div>
+
+            <!-- Right Panel for Expense List and Filter -->
+            <div class="right-panel">
+                <div class="filter-section">
+                    <h2>Filters</h2>
+                    <label for="filter-category">Filter by Category:</label>
+                    <select id="filter-category">
+                        <option value="">All</option>
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Utilities">Utilities</option>
+                    </select>
+
+                    <label for="filter-month">Filter by Month:</label>
+                    <input type="month" id="filter-month">
+
+                    <button onclick="filterExpenses()">Filter</button>
+                </div>
+
+                <h2>Expense List</h2>
+                <div id="expense-list">
+                    <p>No expenses added yet.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Panel for Total Monthly Expenditure -->
+        <div class="summary-panel">
+            <h2>Total Expenditure</h2>
+            <div id="monthly-summary">
+                <p>Total: ₹0.00</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/scripts.js"></script>
+</body>
+</html>

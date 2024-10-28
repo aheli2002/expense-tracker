@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Summary</title>
+</head>
+<body>
+    <h1>Monthly Summary</h1>
+    <p>Total Expenses: ${{ total_expense }}</p>
+    
+    <h2>Expenses by Category</h2>
+    <ul>
+        {% for category, amount in category_expenses %}
+            <li>{{ category }}: ${{ amount }}</li>
+        {% endfor %}
+    </ul>
+    
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
