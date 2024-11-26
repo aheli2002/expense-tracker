@@ -1,8 +1,22 @@
+// Function to set the max date to today to prevent future dates
+function setMaxDate() {
+    const dateInput = document.getElementById('date');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('max', today);
+}
+
 // Function to add a new expense
 async function addExpense() {
     const amount = parseFloat(document.getElementById('amount').value);
     const category = document.getElementById('category').value;
     const date = document.getElementById('date').value;
+
+    // Check if date is in the past or today
+    const today = new Date().toISOString().split('T')[0];
+    if (date > today) {
+        alert("The date cannot be in the future. Please select a valid date.");
+        return;
+    }
 
     if (amount && category && date) {
         try {
@@ -100,5 +114,8 @@ async function filterExpenses() {
     }
 }
 
-// Load expenses on page load
-window.onload = getExpenses;
+// Load expenses and set max date on page load
+window.onload = function() {
+    setMaxDate();
+    getExpenses();
+};
