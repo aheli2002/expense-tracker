@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: expensetracker-deployment
+spec:
+  replicas: 1  # Use 1 replica during testing for consistency
+  selector:
+    matchLabels:
+      app: expensetracker
+  template:
+    metadata:
+      labels:
+        app: expensetracker
+    spec:
+      containers:
+      - name: flask-expense-tracker
+        image: gcr.io/expensetracker-442808/flask-expense-tracker:latest  
+        imagePullPolicy: Always 
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+        - mountPath: /app/db  # Path where SQLite DB is stored in the container
+          name: sqlite-storage
+      volumes:
+      - name: sqlite-storage
+        persistentVolumeClaim:
+          claimName: sqlite-pvc
