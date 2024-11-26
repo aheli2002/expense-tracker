@@ -1,10 +1,23 @@
 from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
+import os
 from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///expenses.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Define the base directory for the mounted volume
+BASE_DIR = "/app/db"
+
+# Ensure the directory exists (optional, but useful during development)
+if not os.path.exists(BASE_DIR):
+    os.makedirs(BASE_DIR)
+
+# Set the database path
+DB_PATH = os.path.join(BASE_DIR, "expenses.db")
+
+# Configure SQLAlchemy to use the SQLite database at the mounted volume
+app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{DB_PATH}"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
 
@@ -71,4 +84,5 @@ def filter_expenses():
     } for expense in expenses])
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
+
